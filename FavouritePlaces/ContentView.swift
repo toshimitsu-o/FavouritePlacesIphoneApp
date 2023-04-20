@@ -41,6 +41,10 @@ struct ContentView: View {
                             Text(place.name ?? "No name")
                         }
                     }
+                    .onDelete {
+                        index in
+                        deletePlace(index)
+                    }
                 }
             }
             .navigationTitle("My Favourite Places")
@@ -51,6 +55,15 @@ struct ContentView: View {
         withAnimation{
             let place = Place(context: viewContext)
             place.name = placeName
+            saveContext()
+        }
+    }
+    
+    private func deletePlace(_ index: IndexSet) {
+        withAnimation{
+            index.map{places[$0]}.forEach{
+                place in viewContext.delete(place)
+            }
             saveContext()
         }
     }
