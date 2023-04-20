@@ -14,6 +14,7 @@
 		996BA42129F0D5DB00DCA216 /* FavouritePlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA42029F0D5DB00DCA216 /* FavouritePlacesTests.swift */; };
 		996BA42B29F0D5DB00DCA216 /* FavouritePlacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA42A29F0D5DB00DCA216 /* FavouritePlacesUITests.swift */; };
 		996BA42D29F0D5DB00DCA216 /* FavouritePlacesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA42C29F0D5DB00DCA216 /* FavouritePlacesUITestsLaunchTests.swift */; };
+		996BA43A29F0D75200DCA216 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 996BA43929F0D75200DCA216 /* Readme.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		996BA42629F0D5DB00DCA216 /* FavouritePlacesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FavouritePlacesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		996BA42A29F0D5DB00DCA216 /* FavouritePlacesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePlacesUITests.swift; sourceTree = "<group>"; };
 		996BA42C29F0D5DB00DCA216 /* FavouritePlacesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePlacesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		996BA43929F0D75200DCA216 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		996BA40329F0D5DA00DCA216 = {
 			isa = PBXGroup;
 			children = (
+				996BA43929F0D75200DCA216 /* Readme.md */,
 				996BA40E29F0D5DB00DCA216 /* FavouritePlaces */,
 				996BA41F29F0D5DB00DCA216 /* FavouritePlacesTests */,
 				996BA42929F0D5DB00DCA216 /* FavouritePlacesUITests */,
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				996BA41729F0D5DB00DCA216 /* Preview Assets.xcassets in Resources */,
+				996BA43A29F0D75200DCA216 /* Readme.md in Resources */,
 				996BA41429F0D5DB00DCA216 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
