@@ -36,7 +36,10 @@ struct ContentView: View {
                 }
                 List{
                     ForEach(places) {
-                        place in Text(place.name ?? "No name")
+                        place in
+                        NavigationLink(destination: DetailView(place: place)) {
+                            Text(place.name ?? "No name")
+                        }
                     }
                 }
             }
