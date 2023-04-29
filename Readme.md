@@ -1,6 +1,6 @@
 #  FavouritePlaces (Milestone 1)
 
-The app to manage favourite places as a list which includes details of places with pictures and geographic locations. User can add, edit, and delete places.
+The app to manage favourite places as a list which includes details of places with pictures and geographic locations. User can add, edit, and delete places. Data is saved using CoreData.
 
 ## Learning Journal
 
@@ -19,6 +19,7 @@ The app to manage favourite places as a list which includes details of places wi
 - How to download images from url
 - How to use cache
 - How to implement async operations
+- How to test CoreData context
 
 ## Changelog
 
