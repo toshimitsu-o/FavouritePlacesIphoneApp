@@ -10,12 +10,54 @@ import CoreData
 import SwiftUI
 
 /// Default image for when there is no iamge
-fileprivate var defaultImage = Image(systemName: "photo")
+let defaultImage = Image(systemName: "photo")
 /// Local cache for downloaded image
 fileprivate var downloadedImage: [URL: Image] = [:]
 
 extension Place {
-    /// Handle conversion pf url string for image
+    /// Handle name attribute value to/from string
+    var nameString: String {
+        get {
+            self.name ?? "No name"
+        }
+        set {
+            self.name = newValue
+        }
+    }
+    /// Handle notes attribute value to/from string
+    var notesString: String {
+        get {
+            self.notes ?? "No notes"
+        }
+        set {
+            self.notes = newValue
+        }
+    }
+    /// Handle latitude attribute value to/from string
+    var latitudeString: String {
+        get {
+            "\(self.latitude)"
+        }
+        set {
+            guard let latitude = Double(newValue) else {
+                return
+            }
+            self.latitude = latitude
+        }
+    }
+    /// Handle longitude attribute value to/from string
+    var longitudeString: String {
+        get {
+            "\(self.longitude)"
+        }
+        set {
+            guard let longitude = Double(newValue) else {
+                return
+            }
+            self.longitude = longitude
+        }
+    }
+    /// Handle url string for image
     var urlString: String {
         get { imageURL?.absoluteString ?? "" }
         set { guard let url = URL(string: newValue) else { return }
