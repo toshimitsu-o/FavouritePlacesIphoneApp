@@ -24,10 +24,11 @@ struct DetailView: View {
     @State var latitude = ""
     /// Property to store longitude for edit mode
     @State var longitude = ""
-    /// Property to store image
+    /// Property to store UI image
     @State var image = defaultImage
     /// Property to store url of image as string
     @State var urlString = ""
+    /// View to contain details of a Place item such as name, image, location details
     var body: some View {
         List {
             if isEditing {

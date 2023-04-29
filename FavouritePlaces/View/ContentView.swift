@@ -9,6 +9,7 @@ import SwiftUI
 
 /// Main view to display navigation
 struct ContentView: View {
+    /// View to contain navigation view for a Place list
     var body: some View {
         NavigationView{
             PlaceListView()

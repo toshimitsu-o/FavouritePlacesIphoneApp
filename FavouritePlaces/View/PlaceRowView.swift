@@ -13,6 +13,7 @@ struct PlaceRowView: View {
     var place: Place
     /// Property to store image
     @State var image = defaultImage
+    /// View to contain Row  with image, name of a Place item
     var body: some View {
         HStack {
             image.frame(width: 50, height: 50).clipShape(Circle())

@@ -18,7 +18,7 @@ struct PlaceListView: View {
     private var places: FetchedResults<Place>
     /// Environment property for edit mode
     @Environment(\.editMode) private var editMode
-    
+    /// View to contain a list of Place items in a Vstack
     var body: some View {
             VStack {
                 List{
