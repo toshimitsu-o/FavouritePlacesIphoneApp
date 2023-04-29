@@ -41,7 +41,7 @@ struct PlaceListView: View {
                     }
                 }
             }
-            .navigationTitle("My Favourite Places")
+            .navigationTitle("Favourite Places")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
