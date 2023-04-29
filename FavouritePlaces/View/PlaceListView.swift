@@ -21,7 +21,6 @@ struct PlaceListView: View {
     @Environment(\.editMode) private var editMode
     
     var body: some View {
-        NavigationView{
             VStack {
                 List{
                     ForEach(places) {
@@ -55,8 +54,6 @@ struct PlaceListView: View {
                     }){Image(systemName: "plus.circle")}
                 }
             }
-        }
-            
     }
     
     private func addPlace() {
