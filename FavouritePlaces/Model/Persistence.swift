@@ -7,10 +7,13 @@
 
 import CoreData
 
+/// Defining controller fo persistence
 struct PersistenceController {
+    /// Initiating persistance controller to share
     static let shared = PersistenceController()
+    /// Container for persistent
     let container: NSPersistentContainer
-    
+    /// Initialisation for persistent container and loading stored data
     init() {
         container = NSPersistentContainer(name: "DataModel")
         container.loadPersistentStores {

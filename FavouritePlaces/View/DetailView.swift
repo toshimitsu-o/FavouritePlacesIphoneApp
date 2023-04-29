@@ -8,18 +8,25 @@
 import SwiftUI
 import CoreData
 
+/// Place item detail view to display details and edit attributes
 struct DetailView: View {
     /// Get viewContext through environment
     @Environment(\.managedObjectContext) private var viewContext
     /// State property to store edit mode
     @State var isEditing = false
-    
+    /// Property to store Place item
     var place: Place
+    /// Property to store name for edit mode
     @State var name = ""
+    /// Property to store motes for edit mode
     @State var notes = ""
+    /// Property to store latitude for edit mode
     @State var latitude = ""
+    /// Property to store longitude for edit mode
     @State var longitude = ""
+    /// Property to store image
     @State var image = defaultImage
+    /// Property to store url of image as string
     @State var urlString = ""
     var body: some View {
         List {

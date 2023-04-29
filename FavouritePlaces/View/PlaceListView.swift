@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 
+/// Display a list of Place items. With delete, move, and add Place items features.
 struct PlaceListView: View {
     /// Get viewContext through environment
     @Environment(\.managedObjectContext) private var viewContext
@@ -15,8 +16,6 @@ struct PlaceListView: View {
     @FetchRequest(entity: Place.entity(), sortDescriptors: [NSSortDescriptor(key: "position", ascending: true)])
     /// Private variable for result from fetching
     private var places: FetchedResults<Place>
-    ///
-    //private var tempPlaces: [Place] = []
     /// Environment property for edit mode
     @Environment(\.editMode) private var editMode
     
@@ -55,7 +54,7 @@ struct PlaceListView: View {
                 }
             }
     }
-    
+    /// Add a Place item with a default name at last position and save context
     private func addPlace() {
         withAnimation{
             let place = Place(context: viewContext)
@@ -64,7 +63,9 @@ struct PlaceListView: View {
             saveData()
         }
     }
-    
+    /// Delete a place from view context
+    ///
+    /// - parameter index: index position of an item to delete
     private func deletePlace(_ index: IndexSet) {
         withAnimation{
             index.map{places[$0]}.forEach{
@@ -73,9 +74,10 @@ struct PlaceListView: View {
         }
     }
     
-    /// Update position attribute of Place items to the new order of items in List. Changes made to reference type copied places array will update the core data automatically. (Source: https://stackoverflow.com/questions/59742218/swiftui-reorder-coredata-objects-in-list)
+    /// Update position attribute of Place items to the new order of items in List. Changes made to reference type copied places array will update the core data automatically.
     ///
-    /// - parameter index:
+    /// - parameter index: original index position
+    /// - parameter position: new index position
     private func movePlace(_ index: IndexSet, _ position: Int) {
         /// Make a copy array of items
         var movingItems = places.map{$0}
@@ -86,8 +88,11 @@ struct PlaceListView: View {
             movingItems[reverseIndex].position = Int16(reverseIndex)
         }
     }
-    
+    /// Sort order of Place items and update positions and return the last position
+    ///
+    ///  - returns: the last position as Int16
     private func sortPlaces() -> Int16 {
+        /// Position value starts at 0
         var position: Int16 = 0
         places.forEach{
             place in

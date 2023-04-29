@@ -7,8 +7,8 @@
 
 import SwiftUI
 
+/// Main view to display navigation
 struct ContentView: View {
-    
     var body: some View {
         NavigationView{
             PlaceListView()

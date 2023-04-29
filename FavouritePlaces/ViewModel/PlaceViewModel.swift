@@ -12,8 +12,9 @@ import SwiftUI
 /// Default image for when there is no iamge
 let defaultImage = Image(systemName: "photo")
 /// Local cache for downloaded image
-fileprivate var downloadedImage: [URL: Image] = [:]
+var downloadedImage: [URL: Image] = [:]
 
+/// Extending Place with methods and properties to handle attributes with String
 extension Place {
     /// Handle name attribute value to/from string
     var nameString: String {
@@ -86,6 +87,7 @@ extension Place {
 
 /// Save context. When error, print error message.
 func saveData() {
+    /// Shared view context
     let context = PersistenceController.shared.container.viewContext
     do {
         try context.save()
