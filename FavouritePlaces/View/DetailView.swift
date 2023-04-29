@@ -43,9 +43,10 @@ struct DetailView: View {
                     }
             } else {
                 image.scaledToFill().cornerRadius(10)
-                Section() {
-                    Text("Name: \(place.nameString)")
+                Section(header: Text("Notes")) {
                     Text("Notes: \(place.notesString)")
+                }
+                Section(header: Text("Location")) {
                     Text("Latitude: \(place.latitudeString)")
                     Text("Longitude: \(place.longitudeString)")
                 }
