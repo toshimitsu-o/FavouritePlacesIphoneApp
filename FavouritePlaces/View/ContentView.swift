@@ -11,8 +11,6 @@ import CoreData
 struct ContentView: View {
     /// Get viewContext through environment
     @Environment(\.managedObjectContext) private var viewContext
-    /// Place name as state variable
-    @State var placeName: String = ""
     /// Fetch request to get entity in Place
     @FetchRequest(entity: Place.entity(), sortDescriptors: [NSSortDescriptor(key: "position", ascending: true)])
     /// Private variable for result from fetching
@@ -24,20 +22,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView{
-            VStack{
-                TextField("Place name", text: $placeName)
-                HStack{
-                    Spacer()
-                    Button("Add"){
-                        addPlace()
-                        placeName = ""
-                    }
-                    Spacer()
-                    Button("Clear"){
-                        placeName = ""
-                    }
-                    Spacer()
-                }
+            VStack {
                 List{
                     ForEach(places) {
                         place in
@@ -56,24 +41,28 @@ struct ContentView: View {
                         saveData()
                     }
                 }
-                
             }
             .navigationTitle("My Favourite Places")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        // Add new item
+                        addPlace()
+                        saveData()
+                    }){Image(systemName: "plus.circle")}
+                }
             }
         }
+            
     }
     
     private func addPlace() {
         withAnimation{
-            guard placeName != "" else {
-                return
-            }
             let place = Place(context: viewContext)
-            place.name = placeName
+            place.name = "New place"
             place.position = sortPlaces()
             saveData()
         }
