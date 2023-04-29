@@ -48,12 +48,12 @@ struct ContentView: View {
                     .onDelete {
                         index in
                         deletePlace(index)
-                        saveContext()
+                        saveData()
                     }
                     .onMove{
                         index, position in
                         movePlace(index, position)
-                        saveContext()
+                        saveData()
                     }
                 }
                 
@@ -75,7 +75,7 @@ struct ContentView: View {
             let place = Place(context: viewContext)
             place.name = placeName
             place.position = sortPlaces()
-            saveContext()
+            saveData()
         }
     }
     
@@ -109,15 +109,6 @@ struct ContentView: View {
             position += 1
         }
         return position
-    }
-
-    private func saveContext() {
-        do {
-            try viewContext.save()
-        } catch {
-            let error = error as NSError
-            fatalError("An error occoured during saving: \(error)")
-        }
     }
 }
 
