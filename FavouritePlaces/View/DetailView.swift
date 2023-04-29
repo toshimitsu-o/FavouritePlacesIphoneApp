@@ -22,38 +22,64 @@ struct DetailView: View {
     @State var image = defaultImage
     @State var urlString = ""
     var body: some View {
-        VStack{
-            image.scaledToFit().cornerRadius(20).shadow(radius: 20)
+        List {
             if isEditing {
-                TextField("Url:", text: $urlString)
-                TextField("Name:", text: $name)
-                TextField("Notes:", text: $notes)
-                TextField("Latitude:", text: $latitude)
-                TextField("Longitude:", text: $longitude)
+                    Section(header: Text("Name")) {
+                        TextField("Name", text: $name)
+                    }
+                    Section(header: Text("Notes")) {
+                        TextField("Notes", text: $notes, axis: .vertical)
+                            .lineLimit(2...10)
+                    }
+                    Section(header: Text("Latitude")) {
+                        TextField("Latitude", text: $latitude)
+                    }
+                    Section(header: Text("Longitude")) {
+                        TextField("Longitude", text: $longitude)
+                    }
+                    Section(header: Text("Image URL")) {
+                        TextField("Image URL", text: $urlString, axis: .vertical)
+                            .lineLimit(1...5)
+                    }
             } else {
-                List {
-                    Text("Name: \(name)")
-                    Text("Notes: \(notes)")
-                    Text("Latitude: \(latitude)")
-                    Text("Longitude: \(longitude)")
+                image.scaledToFill().cornerRadius(10)
+                Section() {
+                    Text("Name: \(place.nameString)")
+                    Text("Notes: \(place.notesString)")
+                    Text("Latitude: \(place.latitudeString)")
+                    Text("Longitude: \(place.longitudeString)")
                 }
             }
-            Button("\(isEditing ? "Save" : "Edit")") {
-                if isEditing {
-                    place.nameString = name
-                    place.notesString = notes
-                    place.urlString = urlString
-                    place.latitudeString = latitude
-                    place.longitudeString = longitude
-                    saveData()
-                    Task {
-                        image = await place.getImage()
+                Button("\(isEditing ? "Save" : "Edit")") {
+                    if isEditing {
+                        place.nameString = name
+                        place.notesString = notes
+                        place.urlString = urlString
+                        place.latitudeString = latitude
+                        place.longitudeString = longitude
+                        saveData()
+                        Task {
+                            image = await place.getImage()
+                        }
+                    }
+                    isEditing.toggle()
+                }
+        }
+        .navigationTitle(place.nameString)
+        .toolbar {
+            if isEditing {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Cancel") {
+                        name = place.nameString
+                        notes = place.notesString
+                        latitude = place.latitudeString
+                        longitude = place.longitudeString
+                        urlString = place.urlString
+                        isEditing.toggle()
                     }
                 }
-                isEditing.toggle()
             }
         }
-        .navigationTitle(name)
         .onAppear {
             name = place.nameString
             notes = place.notesString
