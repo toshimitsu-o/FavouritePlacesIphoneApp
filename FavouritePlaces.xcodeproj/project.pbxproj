@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9960406B29FCBF3300D547E0 /* PlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9960406A29FCBF3300D547E0 /* PlaceViewModel.swift */; };
+		9960406D29FCEFB500D547E0 /* PlaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9960406C29FCEFB500D547E0 /* PlaceListView.swift */; };
+		9960406F29FD064800D547E0 /* PlaceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9960406E29FD064800D547E0 /* PlaceRowView.swift */; };
 		996BA41029F0D5DB00DCA216 /* FavouritePlacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA40F29F0D5DB00DCA216 /* FavouritePlacesApp.swift */; };
 		996BA41229F0D5DB00DCA216 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA41129F0D5DB00DCA216 /* ContentView.swift */; };
 		996BA41429F0D5DB00DCA216 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 996BA41329F0D5DB00DCA216 /* Assets.xcassets */; };
@@ -40,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		9960406A29FCBF3300D547E0 /* PlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModel.swift; sourceTree = "<group>"; };
+		9960406C29FCEFB500D547E0 /* PlaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListView.swift; sourceTree = "<group>"; };
+		9960406E29FD064800D547E0 /* PlaceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRowView.swift; sourceTree = "<group>"; };
 		996BA40C29F0D5DB00DCA216 /* FavouritePlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavouritePlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		996BA40F29F0D5DB00DCA216 /* FavouritePlacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePlacesApp.swift; sourceTree = "<group>"; };
 		996BA41129F0D5DB00DCA216 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				996BA41129F0D5DB00DCA216 /* ContentView.swift */,
+				9960406C29FCEFB500D547E0 /* PlaceListView.swift */,
+				9960406E29FD064800D547E0 /* PlaceRowView.swift */,
 				996BA44A29F0EE4E00DCA216 /* DetailView.swift */,
 			);
 			path = View;
@@ -301,6 +307,8 @@
 				996BA44929F0E23700DCA216 /* DataModel.xcdatamodeld in Sources */,
 				996BA43F29F0DBD900DCA216 /* Persistence.swift in Sources */,
 				996BA44B29F0EE4E00DCA216 /* DetailView.swift in Sources */,
+				9960406D29FCEFB500D547E0 /* PlaceListView.swift in Sources */,
+				9960406F29FD064800D547E0 /* PlaceRowView.swift in Sources */,
 				9960406B29FCBF3300D547E0 /* PlaceViewModel.swift in Sources */,
 				996BA41029F0D5DB00DCA216 /* FavouritePlacesApp.swift in Sources */,
 			);
