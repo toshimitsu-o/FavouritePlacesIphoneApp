@@ -57,6 +57,10 @@ struct DetailView: View {
                 Section(header: Text("Location")) {
                     Text("Latitude: \(place.latitudeString)")
                     Text("Longitude: \(place.longitudeString)")
+                    NavigationLink(destination: LocationView(place: place)) {
+                        Button("Map") {}
+                    }
+                    
                 }
             }
                 Button("\(isEditing ? "Save" : "Edit")") {

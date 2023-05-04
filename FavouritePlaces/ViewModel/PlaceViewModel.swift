@@ -117,7 +117,7 @@ func deletePlaces(_ places: [Place]) {
 func loadDefaultData() {
     /// Array of place details for default places
     let defaultPlaces = [
-        ["Sydney","The capital city of the state of New South Wales, and the most populous city in Australia.", -33.8678500, 151.2073200, "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Sydney_Opera_House_and_Harbour_Bridge_Dusk_%282%29_2019-06-21.jpg/800px-Sydney_Opera_House_and_Harbour_Bridge_Dusk_%282%29_2019-06-21.jpg", 0],
+        ["Sydney","The capital city of the state of New South Wales, and the most populous city in Australia.", -33.8678500, 151.2073200, "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Sydney_CBD_skyline%2C_January_2021.jpg/800px-Sydney_CBD_skyline%2C_January_2021.jpg", 0],
         ["Brisbane","The capital and most populous city of Queensland.", -27.46794, 153.02809, "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Michaelmano-story-bridge.jpg/800px-Michaelmano-story-bridge.jpg", 1],
         ["Melbourne","The capital of the Australian state of Victoria, and the second-most populous city in Australia.", -37.814, 144.96332, "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Melburnian_Skyline.jpg/800px-Melburnian_Skyline.jpg", 2]
         ]
