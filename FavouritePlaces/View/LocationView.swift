@@ -9,6 +9,8 @@ import SwiftUI
 import MapKit
 
 struct LocationView: View {
+    /// Get viewContext through environment
+    //@Environment(\.managedObjectContext) private var viewContext
     /// Property to store Place item
     var place: Place
     
@@ -55,12 +57,25 @@ struct LocationView: View {
                 }.offset(x:10, y: 280)
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                if (place.latitudeString != latitude || place.longitudeString != longitude) {
+                    Button(action: {
+                        place.nameString = model.name
+                        place.latitudeString = latitude
+                        place.longitudeString = longitude
+                        saveData()
+                    }){Text("Update")}
+                }
+            }
+        }
         .onAppear {
             latitude = place.latitudeString
             longitude = place.longitudeString
             model.longStr = longitude
             model.latStr = latitude
             model.setupRegion()
+            //checkMap()
         }
     }
     func checkAddress(){

@@ -15,7 +15,7 @@ struct DetailView: View {
     /// State property to store edit mode
     @State var isEditing = false
     /// Property to store Place item
-    var place: Place
+    @ObservedObject var place: Place
     /// Property to store name for edit mode
     @State var name = ""
     /// Property to store motes for edit mode
