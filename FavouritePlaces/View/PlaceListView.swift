@@ -40,6 +40,11 @@ struct PlaceListView: View {
                     }
                 }
             }
+            .task {
+                if(places.count == 0) {
+                    loadDefaultData()
+                }
+            }
             .navigationTitle("Favourite Places")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

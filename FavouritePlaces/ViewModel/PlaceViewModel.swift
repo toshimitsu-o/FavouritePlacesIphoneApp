@@ -19,7 +19,7 @@ extension Place {
     /// Handle name attribute value to/from string
     var nameString: String {
         get {
-            self.name ?? "No name"
+            return self.name ?? "No name"
         }
         set {
             self.name = newValue
@@ -94,4 +94,27 @@ func saveData() {
     } catch {
         print("An error occoured during saving: \(error)")
     }
+}
+
+/// Create Place items from sample data and save as default Place items
+func loadDefaultData() {
+    /// Array of place details for default places
+    let defaultPlaces = [
+        ["Sydney","The capital city of the state of New South Wales, and the most populous city in Australia.", -33.8678500, 151.2073200, "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Sydney_Opera_House_and_Harbour_Bridge_Dusk_%282%29_2019-06-21.jpg/800px-Sydney_Opera_House_and_Harbour_Bridge_Dusk_%282%29_2019-06-21.jpg", 0],
+        ["Brisbane","The capital and most populous city of Queensland.", -27.46794, 153.02809, "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Michaelmano-story-bridge.jpg/800px-Michaelmano-story-bridge.jpg", 1],
+        ["Melbourne","The capital of the Australian state of Victoria, and the second-most populous city in Australia.", -37.814, 144.96332, "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Melburnian_Skyline.jpg/800px-Melburnian_Skyline.jpg", 2]
+        ]
+    /// Shared view context
+    let context = PersistenceController.shared.container.viewContext
+    
+    defaultPlaces.forEach {
+        let place = Place(context: context)
+        place.nameString = $0[0] as! String
+        place.notesString = $0[1] as! String
+        place.latitude = $0[2] as! Double
+        place.longitude = $0[3] as! Double
+        place.urlString = $0[4] as! String
+        place.position = Int16($0[5] as! Int)
+    }
+    saveData()
 }
