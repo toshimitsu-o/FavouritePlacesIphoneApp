@@ -30,13 +30,11 @@ struct PlaceListView: View {
                     }
                     .onDelete {
                         index in
-                        deletePlace(index)
-                        saveData()
+                        delete(index)
                     }
                     .onMove{
                         index, position in
                         movePlace(index, position)
-                        saveData()
                     }
                 }
             }
@@ -53,29 +51,30 @@ struct PlaceListView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         // Add new item
-                        addPlace()
-                        saveData()
+                        add()
                     }){Image(systemName: "plus.circle")}
                 }
             }
     }
-    /// Add a Place item with a default name at last position and save context
-    private func addPlace() {
+    /// Add a Place item with a default name at last position
+    private func add() {
+        var position = sortPlaces()
         withAnimation{
-            let place = Place(context: viewContext)
-            place.name = "New place"
-            place.position = sortPlaces()
-            saveData()
+            addPlace(position)
         }
     }
+    
     /// Delete a place from view context
     ///
     /// - parameter index: index position of an item to delete
-    private func deletePlace(_ index: IndexSet) {
+    private func delete(_ index: IndexSet) {
+        /// Array of Place items to delete
+        var placesToDelete: [Place] = []
         withAnimation{
-            index.map{places[$0]}.forEach{
-                place in viewContext.delete(place)
+            index.forEach{
+                placesToDelete.append(places[$0])
             }
+            deletePlaces(placesToDelete)
         }
     }
     
@@ -92,6 +91,7 @@ struct PlaceListView: View {
         for reverseIndex in stride(from: movingItems.count - 1, through: 0, by: -1) {
             movingItems[reverseIndex].position = Int16(reverseIndex)
         }
+        saveData()
     }
     /// Sort order of Place items and update positions and return the last position
     ///

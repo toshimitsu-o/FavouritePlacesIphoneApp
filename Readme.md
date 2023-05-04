@@ -21,6 +21,10 @@ The app to manage favourite places as a list which includes details of places wi
 - How to implement async operations
 - How to test CoreData context
 
+### Week 8
+
+- How to load default sample data
+
 ## Changelog
 
 ### Milestone 1
@@ -36,6 +40,11 @@ The app to manage favourite places as a list which includes details of places wi
 - Add location attributes
 - Add eidt mode for place details
 - Add thumbnail image and location details to list row
+
+### Milestone 2
+
+- Add feature to load default place data for when there is no place data saved
+- Move some of delete and add processes to view model file
 
 ## Video
 

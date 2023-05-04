@@ -96,6 +96,23 @@ func saveData() {
     }
 }
 
+func addPlace(_ position: Int16) {
+    let context = PersistenceController.shared.container.viewContext
+    let place = Place(context: context)
+    place.name = "New place"
+    place.position = position
+    saveData()
+}
+
+func deletePlaces(_ places: [Place]) {
+    /// Shared view context
+    let context = PersistenceController.shared.container.viewContext
+    places.forEach{
+        context.delete($0)
+    }
+    saveData()
+}
+
 /// Create Place items from sample data and save as default Place items
 func loadDefaultData() {
     /// Array of place details for default places
