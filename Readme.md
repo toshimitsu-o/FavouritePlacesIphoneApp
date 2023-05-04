@@ -24,6 +24,8 @@ The app to manage favourite places as a list which includes details of places wi
 ### Week 8
 
 - How to load default sample data
+- How to set up Map view and access geo location
+- How to update Map view and move with animation
 
 ## Changelog
 
@@ -45,6 +47,8 @@ The app to manage favourite places as a list which includes details of places wi
 
 - Add feature to load default place data for when there is no place data saved
 - Move some of delete and add processes to view model file
+- Add Map location view
+- Add update feature to save geo location data and location name to place item list
 
 ## Video
 
