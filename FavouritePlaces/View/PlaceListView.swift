@@ -15,7 +15,7 @@ struct PlaceListView: View {
     /// Fetch request to get entity in Place
     @FetchRequest(entity: Place.entity(), sortDescriptors: [NSSortDescriptor(key: "position", ascending: true)])
     /// Private variable for result from fetching
-    private var places: FetchedResults<Place>
+    var places: FetchedResults<Place>
     /// Environment property for edit mode
     @Environment(\.editMode) private var editMode
     /// View to contain a list of Place items in a Vstack

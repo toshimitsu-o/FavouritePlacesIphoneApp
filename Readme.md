@@ -31,6 +31,7 @@ The app to manage favourite places as a list which includes details of places wi
 
 - How to solve error from loading cache image by wrapping in DispatchQueue.main.async
 - How to size a sub view by adding .frame(width:, height:)
+- How to create a thumbnail map view
 
 ## Changelog
 

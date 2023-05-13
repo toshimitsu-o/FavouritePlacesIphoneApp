@@ -10,7 +10,7 @@ import SwiftUI
 /// Row view containg Place item name and image for the list of Place items
 struct PlaceRowView: View {
     /// Property for storing Place item
-    var place: Place
+    @StateObject var place: Place
     /// Property to store image
     @State var image = defaultImage
     /// View to contain Row  with image, name of a Place item
