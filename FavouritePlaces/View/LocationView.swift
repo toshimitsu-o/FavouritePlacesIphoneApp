@@ -73,6 +73,7 @@ struct LocationView: View {
                     place.latitudeString = latitude
                     place.longitudeString = longitude
                     saveData()
+                    isEditing.toggle()
                 }){Text("Update Location")}
             }
         }
@@ -111,7 +112,6 @@ struct LocationView: View {
     }
     /// Update map delta from the zoom value
     func setZoom() {
-        checkMap()
         model.fromZoomToDelta(zoom)
         model.fromLocToAddress()
         model.setupRegion()
@@ -121,7 +121,7 @@ struct LocationView: View {
         model.updateFromRegion()
         latitude = model.latStr
         longitude = model.longStr
-        model.fromAddressToLoc(updateViewLoc)
+        model.fromLocToAddress()
     }
     /// Uopdate location details in the view from model
     func updateViewLoc () {
