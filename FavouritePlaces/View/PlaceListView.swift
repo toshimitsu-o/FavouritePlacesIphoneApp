@@ -14,7 +14,7 @@ struct PlaceListView: View {
     @Environment(\.managedObjectContext) private var viewContext
     /// Fetch request to get entity in Place
     @FetchRequest(entity: Place.entity(), sortDescriptors: [NSSortDescriptor(key: "position", ascending: true)])
-    /// Private variable for result from fetching
+    /// property  for result from fetching
     var places: FetchedResults<Place>
     /// Environment property for edit mode
     @Environment(\.editMode) private var editMode
