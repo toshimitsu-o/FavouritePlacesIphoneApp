@@ -26,6 +26,8 @@
 		996BA44929F0E23700DCA216 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 996BA44729F0E23700DCA216 /* DataModel.xcdatamodeld */; };
 		996BA44B29F0EE4E00DCA216 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA44A29F0EE4E00DCA216 /* DetailView.swift */; };
 		999D67A12A0F47B700437D51 /* MapThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999D67A02A0F47B700437D51 /* MapThumbnailView.swift */; };
+		999D67A22A0FABA500437D51 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9247C2A03B47200E54FCC /* LocationViewModel.swift */; };
+		999D67A32A0FABCA00437D51 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9247A2A03AD7E00E54FCC /* LocationModel.swift */; };
 		99A924792A03A96100E54FCC /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A924782A03A96100E54FCC /* LocationView.swift */; };
 		99A9247B2A03AD7E00E54FCC /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9247A2A03AD7E00E54FCC /* LocationModel.swift */; };
 		99A9247D2A03B47200E54FCC /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9247C2A03B47200E54FCC /* LocationViewModel.swift */; };
@@ -344,6 +346,8 @@
 				996BA42129F0D5DB00DCA216 /* FavouritePlacesTests.swift in Sources */,
 				9960407429FD320B00D547E0 /* Persistence.swift in Sources */,
 				9960407329FD319700D547E0 /* PlaceViewModel.swift in Sources */,
+				999D67A22A0FABA500437D51 /* LocationViewModel.swift in Sources */,
+				999D67A32A0FABCA00437D51 /* LocationModel.swift in Sources */,
 				9960407229FD319200D547E0 /* DataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

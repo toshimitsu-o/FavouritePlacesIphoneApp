@@ -75,5 +75,43 @@ final class FavouritePlacesTests: XCTestCase {
         let image = await place.getImage()
         XCTAssertEqual(image, defaultImage)
     }
-
+    /// Test latStr from Location view model to check if it converts Double to srting
+    func testLatStr() throws {
+        /// New location item
+        let loc = Location()
+        loc.latitude = 23.02000
+        /// Property to store value from latStr
+        let latitudeString = loc.latStr
+        XCTAssertEqual(latitudeString, "23.02000")
+    }
+    
+    /// Test longStr from Location view model to check if it converts Double to srting
+    func testLongStr() throws {
+        /// New location item
+        let loc = Location()
+        loc.longitude = 23.02000
+        /// Property to store value from longStr
+        let longitudeString = loc.longStr
+        XCTAssertEqual(longitudeString, "23.02000")
+    }
+    ///  Test setupRegion function in location view model to check region is set up
+    func testSetupRegion() throws {
+        /// New location item
+        let loc = Location()
+        loc.latitude = 1.00000
+        loc.longitude = 1.00000
+        loc.setupRegion()
+        XCTAssertEqual(loc.region.center.latitude, 1.00000)
+    }
+    /// Test updateFromRegion function in location view model to check latitude is updated by new region center
+    func testUpdateFromRegion() throws {
+        /// New location item
+        let loc = Location()
+        loc.latitude = 1.00000
+        loc.longitude = 1.00000
+        loc.setupRegion()
+        loc.region.center.latitude = 0.00000
+        loc.updateFromRegion()
+        XCTAssertEqual(loc.latitude, 0.00000)
+    }
 }
