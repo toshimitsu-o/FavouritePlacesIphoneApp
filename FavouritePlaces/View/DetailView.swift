@@ -56,11 +56,11 @@ struct DetailView: View {
                 }
                 Section(header: Text("Location")) {
                     NavigationLink(destination: LocationView(place: place)) {
-                        Button("Map") {}
-                    }
-                    HStack {
-                        Text("Latitude: \(place.latitudeString)").font(.system(size: 12, weight: .light))
-                        Text("Longitude: \(place.longitudeString)").font(.system(size: 12, weight: .light))
+                        VStack {
+                            MapThumbnailView(place: place)
+                                .frame(height: 200)
+                            Button("View Map") {}
+                        }
                     }
                 }
             }

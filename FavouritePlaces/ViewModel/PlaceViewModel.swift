@@ -75,7 +75,9 @@ extension Place {
             let (data, _ ) = try await URLSession.shared.data(from: url)
             guard let uiImg = UIImage(data: data) else { return defaultImage }
             let image = Image(uiImage: uiImg).resizable()
-            downloadedImage[url] = image
+            DispatchQueue.main.async {
+                downloadedImage[url] = image
+            }
             return image
         }
         catch {
