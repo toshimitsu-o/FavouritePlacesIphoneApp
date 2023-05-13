@@ -8,12 +8,11 @@
 import SwiftUI
 import MapKit
 
+/// View to display a location on map with edit mode to update the location
 struct LocationView: View {
-    /// Get viewContext through environment
-    //@Environment(\.managedObjectContext) private var viewContext
     /// Property to store Place item
     var place: Place
-    
+    /// Assign the shared location model instance
     @ObservedObject var model = Location.shared
     /// Property to store latitude for edit mode
     @State var latitude = "0.0"
@@ -23,7 +22,7 @@ struct LocationView: View {
     @State var zoom = 40.0
     /// State property to store edit mode state
     @State var isEditing = false
-    
+    /// View body to display map and text fields to update the location in edit mode
     var body: some View {
         VStack {
             if isEditing {
@@ -47,7 +46,7 @@ struct LocationView: View {
             }
             Slider(value: $zoom, in: 10...60) {
                 if !$0 {
-                    checkZoom()
+                    setZoom()
                 }
             }
             ZStack(alignment: .bottom) {
@@ -97,37 +96,34 @@ struct LocationView: View {
             model.longStr = longitude
             model.latStr = latitude
             model.setupRegion()
-            //checkMap()
         }
     }
+    /// Get location details from address name
     func checkAddress(){
-        model.fromAddressToLocOld(updateViewLoc)
-        //        Task{
-//            await model.fromAddressToLoc()
-//            latitude = model.latStr
-//            longitude = model.longStr
-//        }
-        
+        model.fromAddressToLoc(updateViewLoc)
     }
+    /// Get address name and set region from location details
     func checkLocation() {
         model.longStr = longitude
         model.latStr = latitude
         model.fromLocToAddress()
         model.setupRegion()
     }
-    func checkZoom() {
+    /// Update map delta from the zoom value
+    func setZoom() {
         checkMap()
         model.fromZoomToDelta(zoom)
         model.fromLocToAddress()
         model.setupRegion()
     }
+    /// Set center location of region to the new location
     func checkMap() {
         model.updateFromRegion()
         latitude = model.latStr
         longitude = model.longStr
-        model.fromAddressToLocOld(updateViewLoc)
+        model.fromAddressToLoc(updateViewLoc)
     }
-    
+    /// Uopdate location details in the view from model
     func updateViewLoc () {
         latitude = model.latStr
         longitude = model.longStr

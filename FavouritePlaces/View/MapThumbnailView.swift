@@ -7,15 +7,13 @@
 
 import SwiftUI
 import MapKit
-
+/// Sub view to display thumbnail map in detail view
 struct MapThumbnailView: View {
-    /// Get viewContext through environment
-    //@Environment(\.managedObjectContext) private var viewContext
     /// Property to store Place item
     var place: Place
-    
+    /// Property to assign location model object
     @StateObject var model = Location()
-    
+    /// View body to display Map with location model with latitude, logntitude details
     var body: some View {
         VStack(alignment: .leading) {
             Map(coordinateRegion: $model.region)
@@ -28,7 +26,6 @@ struct MapThumbnailView: View {
             model.latStr = place.latitudeString
             model.longStr = place.longitudeString
             model.setupRegion()
-            //checkMap()
         }
     }
 }

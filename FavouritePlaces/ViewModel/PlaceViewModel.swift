@@ -69,6 +69,7 @@ extension Place {
     ///
     ///  - returns: Image. If download fails, return defaultImage. If already downloaded, return cached downloadedImage.
     func getImage() async -> Image {
+        ///  URL of image
         guard let url = imageURL else { return defaultImage }
         if let image = downloadedImage[url] { return image}
         do {
@@ -98,14 +99,22 @@ func saveData() {
     }
 }
 
+/// Add a place with a default name at the given position and save to context.
+///
+///  - parameter position: Position to add a new place at.
 func addPlace(_ position: Int16) {
+    /// Shared view context
     let context = PersistenceController.shared.container.viewContext
+    /// Creating a new Place
     let place = Place(context: context)
     place.name = "New place"
     place.position = position
     saveData()
 }
 
+/// Delete places and save context
+///
+///  - parameter places: Array of place objects to delete
 func deletePlaces(_ places: [Place]) {
     /// Shared view context
     let context = PersistenceController.shared.container.viewContext

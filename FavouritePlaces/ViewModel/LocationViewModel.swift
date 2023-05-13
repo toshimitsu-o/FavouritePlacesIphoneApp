@@ -8,7 +8,10 @@
 import Foundation
 import CoreLocation
 import SwiftUI
+
+/// Extend Location class
 extension Location {
+    /// Latitude conversion from/to String/Double
     var latStr: String {
         get{String(format: "%.5f", latitude)}
         set{
@@ -16,19 +19,20 @@ extension Location {
             latitude = lat
         }
     }
+    /// Longitude conversion from/to String/Double
     var longStr: String {
         get{String(format: "%.5f", longitude)}
         set{
             guard let long = Double(newValue), long <= 180.0, long >= -180.0 else {return}
             longitude = long
         }
-
     }
-    
+    /// Update latitude and longitude from center location of region
     func updateFromRegion() {
         latitude = region.center.latitude
         longitude = region.center.longitude
     }
+    /// Set up region in map with latitude, longitude, and delta
     func setupRegion() {
         withAnimation {
             region.center.latitude = latitude
@@ -37,8 +41,9 @@ extension Location {
             region.span.latitudeDelta = delta
         }
     }
-    
+    /// Get address name from location details
     func fromLocToAddress() {
+        /// Peroperty to point CLGeocoder
         let coder = CLGeocoder()
         coder.reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)) { marks, error in
             if let err = error {
@@ -49,21 +54,13 @@ extension Location {
             let name = mark?.name ?? mark?.country ?? mark?.locality ?? mark?.administrativeArea ?? "No name"
             self.name = name
         }
-        
-    }
-    
-    func fromAddressToLoc() async {
-        let encode = CLGeocoder()
-        let marks = try? await encode.geocodeAddressString(self.name)
-        
-        if let mark = marks?.first {
-            self.latitude = mark.location?.coordinate.latitude ?? self.latitude
-            self.longitude = mark.location?.coordinate.longitude ?? self.longitude
-            self.setupRegion()
-        }
     }
 
-    func fromAddressToLocOld(_ cb: @escaping ()->Void) {
+    /// Get location details from address name. Then  perform a callback function, and set up region.
+    ///
+    /// - parameter cb: a callback function to perform
+    func fromAddressToLoc(_ cb: @escaping ()->Void) {
+        /// Assigning CLGeocoder as encoder
         let encode = CLGeocoder()
         encode.geocodeAddressString(self.name) { marks, error in
             if let err = error {
@@ -79,7 +76,9 @@ extension Location {
         }
     }
 
-    
+    /// Convert zoom value to delta value
+    ///
+    ///  - parameter zoom: zoom value to convert to delta
     func fromZoomToDelta(_ zoom: Double){
         let c1 = -10.0
         let c2 = 3.0
