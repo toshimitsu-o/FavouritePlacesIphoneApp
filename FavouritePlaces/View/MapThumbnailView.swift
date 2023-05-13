@@ -14,11 +14,7 @@ struct MapThumbnailView: View {
     /// Property to store Place item
     var place: Place
     
-    @ObservedObject var model = Location.shared
-    /// Property to store latitude for edit mode
-    @State var latitude = "0.0"
-    /// Property to store latitude for edit mode
-    @State var longitude = "0.0"
+    @StateObject var model = Location()
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -29,10 +25,8 @@ struct MapThumbnailView: View {
             }
         }
         .onAppear {
-            latitude = place.latitudeString
-            longitude = place.longitudeString
-            model.longStr = longitude
-            model.latStr = latitude
+            model.latStr = place.latitudeString
+            model.longStr = place.longitudeString
             model.setupRegion()
             //checkMap()
         }

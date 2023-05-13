@@ -19,53 +19,75 @@ struct LocationView: View {
     @State var latitude = "0.0"
     /// Property to store latitude for edit mode
     @State var longitude = "0.0"
-    
+    /// Property to store zoom size
     @State var zoom = 40.0
+    /// State property to store edit mode state
+    @State var isEditing = false
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack{
-                Text("Address")
-                TextField("Address", text: $model.name)
-                Image(systemName: "sparkle.magnifyingglass").foregroundColor(.blue)
-                    .onTapGesture {
-                        checkAddress()
-                    }
-            }
-            HStack{
-                Text("Lat/Long")
-                TextField("Lat:", text: $latitude)
-                TextField("Long:", text: $longitude)
-                Image(systemName: "sparkle.magnifyingglass").foregroundColor(.blue)
-                    .onTapGesture {
-                        checkLocation()
-                    }
+        VStack {
+            if isEditing {
+                HStack{
+                    Text("Address")
+                    TextField("Address", text: $model.name)
+                    Image(systemName: "sparkle.magnifyingglass").foregroundColor(.blue)
+                        .onTapGesture {
+                            checkAddress()
+                        }
+                }
+                HStack{
+                    Text("Lat/Long")
+                    TextField("Lat:", text: $latitude)
+                    TextField("Long:", text: $longitude)
+                    Image(systemName: "sparkle.magnifyingglass").foregroundColor(.blue)
+                        .onTapGesture {
+                            checkLocation()
+                        }
+                }
             }
             Slider(value: $zoom, in: 10...60) {
                 if !$0 {
                     checkZoom()
                 }
             }
-            ZStack{
+            ZStack(alignment: .bottom) {
                 Map(coordinateRegion: $model.region)
-                VStack(alignment: .leading){
-                    Text("Latitude:\(model.region.center.latitude)").font(.footnote)
-                    Text("Longitude:\(model.region.center.longitude)").font(.footnote)
-                    Button("Update"){
-                        checkMap()
+                if isEditing {
+                    HStack {
+                        VStack(alignment: .leading){
+                            Text("Latitude:\(model.region.center.latitude)").font(.system(size: 12, weight: .light))
+                            Text("Longitude:\(model.region.center.longitude)").font(.system(size: 12, weight: .light))
+                        }
+                        Button("Use Center"){
+                            checkMap()
+                        }
                     }
-                }.offset(x:10, y: 280)
+                    .padding(8)
+                    .background(.white.opacity(0.8))
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .offset(x:0, y: -10)
+                }
+            }
+            if (isEditing) {
+                Button(action: {
+                    place.nameString = model.name
+                    place.latitudeString = latitude
+                    place.longitudeString = longitude
+                    saveData()
+                }){Text("Update Location")}
             }
         }
+        .navigationTitle(place.nameString)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                if (place.latitudeString != latitude || place.longitudeString != longitude) {
+                if isEditing {
                     Button(action: {
-                        place.nameString = model.name
-                        place.latitudeString = latitude
-                        place.longitudeString = longitude
-                        saveData()
-                    }){Text("Update")}
+                        isEditing.toggle()
+                    }){Text("Cancel")}
+                } else {
+                    Button(action: {
+                        isEditing.toggle()
+                    }){Text("Edit")}
                 }
             }
         }
@@ -103,7 +125,7 @@ struct LocationView: View {
         model.updateFromRegion()
         latitude = model.latStr
         longitude = model.longStr
-        model.fromLocToAddress()
+        model.fromAddressToLocOld(updateViewLoc)
     }
     
     func updateViewLoc () {
