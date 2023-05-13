@@ -52,15 +52,16 @@ struct DetailView: View {
             } else {
                 image.scaledToFill().cornerRadius(10)
                 Section(header: Text("Notes")) {
-                    Text("Notes: \(place.notesString)")
+                    Text(place.notesString)
                 }
                 Section(header: Text("Location")) {
-                    Text("Latitude: \(place.latitudeString)")
-                    Text("Longitude: \(place.longitudeString)")
                     NavigationLink(destination: LocationView(place: place)) {
                         Button("Map") {}
                     }
-                    
+                    HStack {
+                        Text("Latitude: \(place.latitudeString)").font(.system(size: 12, weight: .light))
+                        Text("Longitude: \(place.longitudeString)").font(.system(size: 12, weight: .light))
+                    }
                 }
             }
                 Button("\(isEditing ? "Save" : "Edit")") {
