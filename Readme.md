@@ -27,6 +27,11 @@ The app to manage favourite places as a list which includes details of places wi
 - How to set up Map view and access geo location
 - How to update Map view and move with animation
 
+### Week 9
+
+- How to solve error from loading cache image by wrapping in DispatchQueue.main.async
+- How to size a sub view by adding .frame(width:, height:)
+
 ## Changelog
 
 ### Milestone 1
@@ -49,6 +54,7 @@ The app to manage favourite places as a list which includes details of places wi
 - Move some of delete and add processes to view model file
 - Add Map location view
 - Add update feature to save geo location data and location name to place item list
+- Add map thumbnail view in detail view to show a small map
 
 ## Video
 
