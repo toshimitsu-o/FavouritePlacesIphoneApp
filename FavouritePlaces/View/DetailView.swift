@@ -63,6 +63,9 @@ struct DetailView: View {
                         }
                     }
                 }
+                Section(header: Text("Sunrise/Sunset")) {
+                    SunriseSunsetView(place: place)
+                }
             }
                 Button("\(isEditing ? "Save" : "Edit")") {
                     if isEditing {

@@ -14,6 +14,8 @@
 		9960407329FD319700D547E0 /* PlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9960406A29FCBF3300D547E0 /* PlaceViewModel.swift */; };
 		9960407429FD320B00D547E0 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA43E29F0DBD900DCA216 /* Persistence.swift */; };
 		9960407629FD331100D547E0 /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9960407529FD331100D547E0 /* Documentation.docc */; };
+		99610B422A208774001512DD /* SunriseSunsetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99610B412A208774001512DD /* SunriseSunsetView.swift */; };
+		99610B442A2088BF001512DD /* SunriseSunsetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99610B432A2088BF001512DD /* SunriseSunsetViewModel.swift */; };
 		996BA41029F0D5DB00DCA216 /* FavouritePlacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA40F29F0D5DB00DCA216 /* FavouritePlacesApp.swift */; };
 		996BA41229F0D5DB00DCA216 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA41129F0D5DB00DCA216 /* ContentView.swift */; };
 		996BA41429F0D5DB00DCA216 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 996BA41329F0D5DB00DCA216 /* Assets.xcassets */; };
@@ -55,6 +57,8 @@
 		9960406C29FCEFB500D547E0 /* PlaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListView.swift; sourceTree = "<group>"; };
 		9960406E29FD064800D547E0 /* PlaceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRowView.swift; sourceTree = "<group>"; };
 		9960407529FD331100D547E0 /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
+		99610B412A208774001512DD /* SunriseSunsetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseSunsetView.swift; sourceTree = "<group>"; };
+		99610B432A2088BF001512DD /* SunriseSunsetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseSunsetViewModel.swift; sourceTree = "<group>"; };
 		996BA40C29F0D5DB00DCA216 /* FavouritePlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavouritePlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		996BA40F29F0D5DB00DCA216 /* FavouritePlacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePlacesApp.swift; sourceTree = "<group>"; };
 		996BA41129F0D5DB00DCA216 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 				996BA44A29F0EE4E00DCA216 /* DetailView.swift */,
 				99A924782A03A96100E54FCC /* LocationView.swift */,
 				999D67A02A0F47B700437D51 /* MapThumbnailView.swift */,
+				99610B412A208774001512DD /* SunriseSunsetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 			children = (
 				9960406A29FCBF3300D547E0 /* PlaceViewModel.swift */,
 				99A9247C2A03B47200E54FCC /* LocationViewModel.swift */,
+				99610B432A2088BF001512DD /* SunriseSunsetViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -327,11 +333,13 @@
 				996BA44929F0E23700DCA216 /* DataModel.xcdatamodeld in Sources */,
 				999D67A12A0F47B700437D51 /* MapThumbnailView.swift in Sources */,
 				996BA43F29F0DBD900DCA216 /* Persistence.swift in Sources */,
+				99610B422A208774001512DD /* SunriseSunsetView.swift in Sources */,
 				996BA44B29F0EE4E00DCA216 /* DetailView.swift in Sources */,
 				9960407629FD331100D547E0 /* Documentation.docc in Sources */,
 				99A9247B2A03AD7E00E54FCC /* LocationModel.swift in Sources */,
 				9960406D29FCEFB500D547E0 /* PlaceListView.swift in Sources */,
 				99A9247D2A03B47200E54FCC /* LocationViewModel.swift in Sources */,
+				99610B442A2088BF001512DD /* SunriseSunsetViewModel.swift in Sources */,
 				9960406F29FD064800D547E0 /* PlaceRowView.swift in Sources */,
 				99A924792A03A96100E54FCC /* LocationView.swift in Sources */,
 				9960406B29FCBF3300D547E0 /* PlaceViewModel.swift in Sources */,
