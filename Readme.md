@@ -57,6 +57,10 @@ The app to manage favourite places as a list which includes details of places wi
 - Add update feature to save geo location data and location name to place item list
 - Add map thumbnail view in detail view to show a small map
 
+### Milestone 3
+
+- Add feature to update the place name from the location name in the map
+
 ## Video
 
 Demonstrating the excution of code, explanation of the code.
