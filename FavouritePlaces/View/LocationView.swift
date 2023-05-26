@@ -104,6 +104,7 @@ struct LocationView: View {
     }
     /// Get location details from address name
     func checkAddress(){
+        model.name = name
         model.fromAddressToLoc(updateViewLoc)
     }
     /// Get address name and set region from location details
