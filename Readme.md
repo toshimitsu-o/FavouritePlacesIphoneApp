@@ -60,6 +60,7 @@ The app to manage favourite places as a list which includes details of places wi
 ### Milestone 3
 
 - Add feature to update the place name from the location name in the map
+- Add feature to show time zone of a place in detail view
 
 ## Video
 
