@@ -12,6 +12,11 @@ import SwiftUI
 struct FavouritePlacesApp: App {
     /// Asign the shared persistence controller
     let persistenceController = PersistenceController.shared
+    /// Initialiser
+    init() {
+        /// Change color of navigation bar title
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.systemGreen]
+        }
     /// The main scene for the app with viewContext
     var body: some Scene {
         WindowGroup {
