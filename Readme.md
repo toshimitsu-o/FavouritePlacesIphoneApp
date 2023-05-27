@@ -1,6 +1,6 @@
 #  FavouritePlaces (Milestone 1)
 
-The app to manage favourite places as a list which includes details of places with pictures and geographic locations. User can add, edit, and delete places. Data is saved using CoreData.
+The app to manage favourite places as a list which includes information of places with pictures, geographic locations, map, and sunrise/sunset times. User can add, edit, and delete places. Data is saved using CoreData.
 
 ## Learning Journal
 
@@ -69,6 +69,8 @@ The app to manage favourite places as a list which includes details of places wi
 - Add feature to update the place name from the location name in the map
 - Add feature to show time zone of a place in detail view
 - Add feature to show sunrise/sunset time of a place in detail view
+- Add app icon
+- Set accent colour and heading colour
 
 ## Video
 
