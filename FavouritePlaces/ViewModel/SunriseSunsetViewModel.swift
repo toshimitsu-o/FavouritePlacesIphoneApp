@@ -34,7 +34,7 @@ extension Location {
     var sunRiseStr: String {
         if let sr = sunRiseTime {
             let localTM = timeConvertFromGMTtoTimeZone(from: sr, to: self.timeZoneStr)
-            return "GMT:\(sr) Local:\(localTM)"
+            return localTM
         }
         return ""
     }
@@ -42,7 +42,7 @@ extension Location {
     var sunSetStr: String {
         if let sr = sunSetTime {
             let localTM = timeConvertFromGMTtoTimeZone(from: sr, to: self.timeZoneStr)
-            return "GMT:\(sr) Local:\(localTM)"
+            return localTM
         }
         return ""
     }
@@ -51,7 +51,7 @@ extension Location {
         HStack {
             Image(systemName: "sunrise")
             if sunRiseStr != "" {
-                Text(sunRiseStr).font(.system(size: 12, weight: .light))
+                Text(sunRiseStr)
             } else {
                 ProgressView()
             }
@@ -62,7 +62,7 @@ extension Location {
         HStack {
             Image(systemName: "sunset")
             if sunSetStr != "" {
-                Text(sunSetStr).font(.system(size: 12, weight: .light))
+                Text(sunSetStr)
             } else {
                 ProgressView()
             }
@@ -111,7 +111,7 @@ extension Location {
         
         let outPutFormatter = DateFormatter()
         outPutFormatter.dateStyle = .none
-        outPutFormatter.timeStyle = .medium
+        outPutFormatter.timeStyle = .short
         outPutFormatter.timeZone = TimeZone(identifier: timezone)
         
         if let time = inputFormatter.date(from: tm) {
