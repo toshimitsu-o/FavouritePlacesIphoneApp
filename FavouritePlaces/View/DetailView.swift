@@ -39,15 +39,26 @@ struct DetailView: View {
                         TextField("Notes", text: $notes, axis: .vertical)
                             .lineLimit(2...10)
                     }
-                    Section(header: Text("Latitude")) {
-                        TextField("Latitude", text: $latitude)
-                    }
-                    Section(header: Text("Longitude")) {
-                        TextField("Longitude", text: $longitude)
-                    }
+//                    Section(header: Text("Latitude")) {
+//                        TextField("Latitude", text: $latitude)
+//                    }
+//                    Section(header: Text("Longitude")) {
+//                        TextField("Longitude", text: $longitude)
+//                    }
                     Section(header: Text("Image URL")) {
                         TextField("Image URL", text: $urlString, axis: .vertical)
                             .lineLimit(1...5)
+                    }
+                    Section(header: Text("Location")) {
+                        TextField("Latitude", text: $latitude)
+                        TextField("Longitude", text: $longitude)
+                        NavigationLink(destination: LocationView(place: place)) {
+                            VStack {
+                                MapThumbnailView(place: place)
+                                    .frame(height: 200)
+                                Button("View Map") {}
+                            }
+                        }
                     }
             } else {
                 image.scaledToFill().cornerRadius(10)

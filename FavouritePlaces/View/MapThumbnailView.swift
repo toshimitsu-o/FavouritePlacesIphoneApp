@@ -18,8 +18,8 @@ struct MapThumbnailView: View {
         VStack(alignment: .leading) {
             Map(coordinateRegion: $model.region)
             HStack {
-                Text("Latitude:\(model.region.center.latitude)").font(.system(size: 12, weight: .light))
-                Text("Longitude:\(model.region.center.longitude)").font(.system(size: 12, weight: .light))
+                Text("Latitude:\(place.latitudeString)").font(.system(size: 12, weight: .light))
+                Text("Longitude:\(place.longitudeString)").font(.system(size: 12, weight: .light))
             }
         }
         .onAppear {
