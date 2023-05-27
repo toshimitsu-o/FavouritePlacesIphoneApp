@@ -114,4 +114,14 @@ final class FavouritePlacesTests: XCTestCase {
         loc.updateFromRegion()
         XCTAssertEqual(loc.latitude, 0.00000)
     }
+    /// Test timeConvertFromGMTtoTimeZone function in SunriseSunsetViewModel to check whether it returns time converted to Brisbane timezone
+    func testTimeConvertFromGMTtoTimeZone() throws {
+        /// New location instance
+        let loc = Location()
+        /// GMT time
+        let fromTime = "7:00:00 PM"
+        /// Result returned from the converter
+        let localTime = loc.timeConvertFromGMTtoTimeZone(from: fromTime, to:"Australia/Brisbane")
+        XCTAssertEqual(localTime, "5:00 AM")
+    }
 }
