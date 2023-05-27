@@ -75,4 +75,4 @@ The app to manage favourite places as a list which includes information of place
 ## Video
 
 Demonstrating the excution of code, explanation of the code.
-[Video]()
+[Video](https://youtu.be/7vBlhm8NiuY)
