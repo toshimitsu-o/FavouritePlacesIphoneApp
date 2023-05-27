@@ -14,8 +14,6 @@ struct LocationView: View {
     var place: Place
     /// Assign the shared location model instance
     @ObservedObject var model = Location.shared
-    /// Property to store name for edit mode
-    @State var name = ""
     /// Property to store latitude for edit mode
     @State var latitude = "0.0"
     /// Property to store latitude for edit mode
@@ -30,7 +28,7 @@ struct LocationView: View {
             if isEditing {
                 HStack{
                     Text("Address")
-                    TextField("Address", text: $name)
+                    TextField("Address", text: $model.name)
                     Image(systemName: "sparkle.magnifyingglass").foregroundColor(.blue)
                         .onTapGesture {
                             checkAddress()
@@ -71,7 +69,7 @@ struct LocationView: View {
             }
             if (isEditing) {
                 Button(action: {
-                    place.nameString = name
+                    place.nameString = model.name
                     place.latitudeString = latitude
                     place.longitudeString = longitude
                     saveData()
@@ -94,7 +92,7 @@ struct LocationView: View {
             }
         }
         .onAppear {
-            name = place.nameString
+            model.name = place.nameString
             latitude = place.latitudeString
             longitude = place.longitudeString
             model.longStr = longitude
@@ -104,7 +102,6 @@ struct LocationView: View {
     }
     /// Get location details from address name
     func checkAddress(){
-        model.name = name
         model.fromAddressToLoc(updateViewLoc)
     }
     /// Get address name and set region from location details
@@ -126,7 +123,6 @@ struct LocationView: View {
         latitude = model.latStr
         longitude = model.longStr
         model.fromLocToAddress()
-        name = model.name
     }
     /// Update location details in the view from model
     func updateViewLoc () {
