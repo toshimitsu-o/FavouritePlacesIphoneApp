@@ -18,6 +18,10 @@ class Location: ObservableObject {
     @Published var longitude = 131.03611
     /// Property for time zone
     @Published var timeZone: String?
+    /// Property for sunrise time
+    @Published var sunRiseTime: String?
+    /// Property for sunset time
+    @Published var sunSetTime: String?
     /// Property for delta  value
     @Published var delta = 0.1
     /// Property for region for map

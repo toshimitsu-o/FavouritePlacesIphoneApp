@@ -33,6 +33,13 @@ The app to manage favourite places as a list which includes details of places wi
 - How to size a sub view by adding .frame(width:, height:)
 - How to create a thumbnail map view
 
+### Week 10
+
+- How to fetch timezone data via API
+- How to fetch sunrise/sunset time data via API
+- How to convert date format using DateFormatter()
+- How to use ProgressView()
+
 ## Changelog
 
 ### Milestone 1
@@ -61,6 +68,7 @@ The app to manage favourite places as a list which includes details of places wi
 
 - Add feature to update the place name from the location name in the map
 - Add feature to show time zone of a place in detail view
+- Add feature to show sunrise/sunset time of a place in detail view
 
 ## Video
 

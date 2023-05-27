@@ -22,6 +22,8 @@ struct SunriseSunsetView: View {
                     ProgressView()
                 }
             }
+            model.sunRiseDisplay
+            model.sunSetDisplay
         }
         .onAppear {
             model.latStr = place.latitudeString
