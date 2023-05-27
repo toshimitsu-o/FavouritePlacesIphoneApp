@@ -80,7 +80,9 @@ extension Location {
     ///
     ///  - parameter zoom: zoom value to convert to delta
     func fromZoomToDelta(_ zoom: Double){
+        /// c1 property value for calculation
         let c1 = -10.0
+        /// c2 property value for calculation
         let c2 = 3.0
         delta = pow(10.0, zoom / c1 + c2)
     }

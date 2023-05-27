@@ -7,12 +7,13 @@
 
 import SwiftUI
 
+/// Sub view to display time of sunrise and sunset with timezone in detail view
 struct SunriseSunsetView: View {
     /// Property to store Place item
     var place: Place
     /// Property to assign location model object
     @StateObject var model = Location()
-    /// View body to display Map with location model with latitude, logntitude details
+    /// View body to display time of sunrise and sunset of a location with timezone
     var body: some View {
         VStack() {
             HStack {

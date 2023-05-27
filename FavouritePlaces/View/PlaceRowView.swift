@@ -18,20 +18,9 @@ struct PlaceRowView: View {
         HStack {
             image.frame(width: 50, height: 50).clipShape(Circle())
             Text(place.nameString)
-//            Spacer()
-//            VStack {
-//                Text(place.latitudeString).font(.system(size: 10, weight: .light))
-//                Text(place.longitudeString).font(.system(size: 10, weight: .light))
-//            }
         }
         .task {
             await image = place.getImage()
         }
     }
 }
-
-//struct PlaceRowView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PlaceRowView()
-//    }
-//}

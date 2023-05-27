@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-/// Class for location model for map views
+/// Location class model for map views and sunrise/sunset times
 class Location: ObservableObject {
     /// Property for location name
     @Published var name = ""
@@ -29,7 +29,15 @@ class Location: ObservableObject {
     /// Location property to share
     static let shared = Location()
     
-    init() {
-        
+    /// Initialiser for location class instance
+    init(name: String = "", latitude: Double = 25.345, longitude: Double = 131.03611, timeZone: String? = nil, sunRiseTime: String? = nil, sunSetTime: String? = nil, delta: Double = 0.1, region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -25.345, longitude: 131.03611), span: MKCoordinateSpan(latitudeDelta: 30.0, longitudeDelta: 30.0))) {
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+        self.timeZone = timeZone
+        self.sunRiseTime = sunRiseTime
+        self.sunSetTime = sunSetTime
+        self.delta = delta
+        self.region = region
     }
 }

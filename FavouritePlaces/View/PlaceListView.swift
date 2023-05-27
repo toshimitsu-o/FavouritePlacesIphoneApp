@@ -58,6 +58,7 @@ struct PlaceListView: View {
     }
     /// Add a Place item with a default name at last position
     private func add() {
+        /// Position value
         let position = sortPlaces()
         withAnimation{
             addPlace(position)
