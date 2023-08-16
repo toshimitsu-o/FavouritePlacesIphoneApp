@@ -1,4 +1,6 @@
-#  FavouritePlaces (Milestone 1)
+#  FavouritePlaces
+
+May 2023
 
 The app to manage favourite places as a list which includes information of places with pictures, geographic locations, map, and sunrise/sunset times. User can add, edit, and delete places. Data is saved using CoreData.
 
@@ -75,4 +77,4 @@ The app to manage favourite places as a list which includes information of place
 ## Video
 
 Demonstrating the excution of code, explanation of the code.
-[Video](https://youtu.be/7vBlhm8NiuY)
+[YouTube Video](https://youtu.be/7vBlhm8NiuY)
